@@ -36,15 +36,16 @@ The data in the input log file will be correctly ordered chronologically and tha
 ## 3. Get into the project after cloning
       cd fairbillingapp
 
-## 4. To run locally
-    python fairbilling.py <inputFilePath>
-
-## 5.Build the docker image of the fairbillingapp 
+## 4. Build the docker image of the fairbillingapp 
      docker build -t fairbilling .
 
-## 6.Run the docker image for finding out the result 
- docker run -v "File Path in your system":/data/filename fairbilling python fairbilling.py /data/filename 
-**# Example: docker run -v "E:\Ananth\fairbilling\input.csv":/data/input.csv fairbilling python fairbilling.py /data/input.csv**
+## 5. Run the docker image for finding out the result 
+      docker run -v <File Path in your system>:/data/<filename> fairbilling python fairbilling.py /data/<filename> 
+      **Example: docker run -v "E:\Ananth\fairbilling\input.csv":/data/input.csv fairbilling python fairbilling.py /data/input.csv**
 
-## 7.For executing unit tests, use the command below
-docker run --rm fairbilling pytest tests/
+## 6. For executing unit tests, use the command below
+      docker run --rm fairbilling pytest tests/
+
+## To run locally without docker
+     python fairbilling.py <inputFilePath>
+    
