@@ -1,4 +1,4 @@
-# Session Processor
+# Fair Billing App
 
 ## Overview
 
@@ -46,6 +46,6 @@ The data in the input log file will be correctly ordered chronologically and tha
 6. **For executing unit tests, use the command below**
       docker run --rm fairbilling pytest tests/
 
-    **To run locally without docker**
-     python fairbilling.py <inputFilePath>
+   **To run locally without docker**
+      python fairbilling.py <inputFilePath>
     
