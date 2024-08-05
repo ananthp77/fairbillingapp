@@ -1,6 +1,6 @@
 import unittest
 from fairbilling import process_data, is_valid_time_format, is_valid_user, validate_line
-
+import os
 class TestFairBilling(unittest.TestCase):
 
     def test_is_valid_time_format(self):
@@ -80,6 +80,10 @@ class TestFairBilling(unittest.TestCase):
         # Expected results: No valid data should result in empty result and session_counts
         self.assertEqual(result, {})
         self.assertEqual(session_counts, {})
+    def tearDown(self):
+        # Remove the test file if it exists
+        if os.path.exists('test_file.txt'):
+            os.remove('test_file.txt')
 
 if __name__ == '__main__':
     unittest.main()

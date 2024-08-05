@@ -44,7 +44,7 @@ def validate_line(line):
     return True
 
 def process_data(file_path):
-    """Processes the session data from the input file."""
+    """Take individual the session data from the input file."""
     try:
         with open(file_path, 'r') as file:
             data = file.readlines()
