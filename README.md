@@ -21,6 +21,6 @@ The `fairbilling.py` script processes session data from a text file to calculate
 1. git clone
 2. cd directory
 3. docker build -t fairbilling .
-4. docker run -v "<File Path in your system>":/data/<filename> fairbilling python fairbilling.py /data/<filename> 
+4. docker run -v <"File Path in your system">:/data/<filename> fairbilling python fairbilling.py /data/<filename> 
 Example: docker run -v "E:\Ananth\fairbilling\input.csv":/data/input.csv fairbilling python fairbilling.py /data/input.csv
 5. docker run fairbilling pytest tests/
