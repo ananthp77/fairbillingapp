@@ -31,7 +31,7 @@ The data in the input log file will be correctly ordered chronologically and tha
 14:04:41 CHARLIE Start
 ```
 ### 2. Clone the Github repositiry
-   git clone https://github.com/ananthp77/fairbillingapp.git
+      git clone https://github.com/ananthp77/fairbillingapp.git
 
 ### 3. Get into the project after cloning
       cd fairbillingapp
