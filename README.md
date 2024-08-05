@@ -16,7 +16,7 @@ The data in the input log file will be correctly ordered chronologically and tha
 
 ## Usage
 
-1. **Prepare Input File**: Create a text file where each line contains a timestamp, a username, and an action ("Start" or "End"). The format should be:
+### 1. Prepare Input File: Create a text file where each line contains a timestamp, a username, and an action ("Start" or "End"). The format should be:
 ```
 14:02:03 ALICE99 Start 
 14:02:05 CHARLIE End 
@@ -30,22 +30,22 @@ The data in the input log file will be correctly ordered chronologically and tha
 14:04:23 ALICE99 End 
 14:04:41 CHARLIE Start
 ```
-2. **Clone the Github repositiry**
+### 2. Clone the Github repositiry
    git clone https://github.com/ananthp77/fairbillingapp.git
 
-3. **Get into the project after cloning**
+### 3. Get into the project after cloning
       cd fairbillingapp
 
-4. **Build the docker image of the fairbillingapp**
+### 4. Build the docker image of the fairbillingapp
      docker build -t fairbilling .
 
-5. **Run the docker image for finding out the result**
+### 5. Run the docker image for finding out the result
       docker run -v <File Path in your system>:/data/<filename> fairbilling python fairbilling.py /data/<filename> 
-      **Example: docker run -v "E:\Ananth\fairbilling\input.csv":/data/input.csv fairbilling python fairbilling.py /data/input.csv**
+      Example: docker run -v "E:\Ananth\fairbilling\input.csv":/data/input.csv fairbilling python fairbilling.py /data/input.csv
 
-6. **For executing unit tests, use the command below**
+### 6. For executing unit tests, use the command below
       docker run --rm fairbilling pytest tests/
 
-   **To run locally without docker**
+### To run locally without docker**
       python fairbilling.py <inputFilePath>
     
