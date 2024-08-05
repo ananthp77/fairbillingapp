@@ -2,7 +2,10 @@
 
 ## Overview
 
-The `fairbilling.py` script processes session data from a text file to calculate the minimum total duration and count of sessions for each user. The input file contains lines with a timestamp, a username, and an action (either "Start" or "End"). The script validates the input, calculates session durations, and outputs the total duration and session count for each user.
+The `fairbilling.py` script processes session data from a log file to calculate the minimum total duration of sessions in seconds and number of sessions for each user. The input log file contains usage data that consists of a timestamp (in HH:MM:SS format), a username (single alphanumeric string of arbitary length), and an action (either "Start" or "End"). If there is a record with "End" status that has no possible matching "Start",the start time should be assumed to be the earliest time of any record in the file and if e there is a “Start” with no possible matching “End”, the end timeshould be assumed to be the latest time of any record in the file. Any log records/lines that do not contain a valid time stamp, username and a Strt/End marker shudl be ignored. The script validates the input in logfile, calculates session durations, and output the minimum total duration and session count for each user.
+
+## Assumptions
+The data in the input log file will be correctly ordered chronologically and that all records in the file will be from within a single day (i.e. they will not span midnight).
 
 ## Features
 
@@ -27,14 +30,21 @@ The `fairbilling.py` script processes session data from a text file to calculate
 14:04:23 ALICE99 End 
 14:04:41 CHARLIE Start
 ```
-# Clone the Github repositiry
-2. git clone https://github.com/ananthp77/fairbillingapp.git
-# Get into the project after cloning
-3. cd fairbillingapp
-# Build the docker image of the fairbillingapp 
-4. docker build -t fairbilling .
-# Run the docker image for finding out the result 
-5. docker run -v "File Path in your system":/data/filename fairbilling python fairbilling.py /data/filename 
-# Example: docker run -v "E:\Ananth\fairbilling\input.csv":/data/input.csv fairbilling python fairbilling.py /data/input.csv
-# For executing unit tests, use the command below
-6. docker run --rm fairbilling pytest tests/
+## 2. Clone the Github repositiry
+   git clone https://github.com/ananthp77/fairbillingapp.git
+
+## 3. Get into the project after cloning
+      cd fairbillingapp
+
+## 4. To run locally
+    python fairbilling.py <inputFilePath>
+
+## 5.Build the docker image of the fairbillingapp 
+     docker build -t fairbilling .
+
+## 6.Run the docker image for finding out the result 
+ docker run -v "File Path in your system":/data/filename fairbilling python fairbilling.py /data/filename 
+**# Example: docker run -v "E:\Ananth\fairbilling\input.csv":/data/input.csv fairbilling python fairbilling.py /data/input.csv**
+
+## 7.For executing unit tests, use the command below
+docker run --rm fairbilling pytest tests/
