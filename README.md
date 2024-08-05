@@ -41,11 +41,12 @@ The data in the input log file will be correctly ordered chronologically and tha
 
 ### 5. Run the docker image for finding out the result
       docker run -v <File Path in your system>:/data/<filename> fairbilling python fairbilling.py /data/<filename> 
-      Example: docker run -v "E:\Ananth\fairbilling\input.csv":/data/input.csv fairbilling python fairbilling.py /data/input.csv
+
+##### Example: docker run -v "E:\Ananth\fairbilling\input.csv":/data/input.csv fairbilling python fairbilling.py /data/input.csv
 
 ### 6. For executing unit tests, use the command below
       docker run --rm fairbilling pytest tests/
 
-### To run locally without docker**
+### To run locally without docker
       python fairbilling.py <inputFilePath>
     
