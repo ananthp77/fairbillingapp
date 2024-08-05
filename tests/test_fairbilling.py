@@ -80,6 +80,16 @@ class TestFairBilling(unittest.TestCase):
         # Expected results: No valid data should result in empty result and session_counts
         self.assertEqual(result, {})
         self.assertEqual(session_counts, {})
+    
+    def test_concurrent_sessions(self):
+        # call the porcess_data method with the file stored in the testfiels directory
+        result, session_counts =process_data('tests/testfiles/input1.txt')
+        self.assertEqual(result['ALICE99'], 240)
+        self.assertEqual(result['CHARLIE'], 37)
+        self.assertEqual(session_counts['ALICE99'], 4)
+        self.assertEqual(session_counts['CHARLIE'], 3)
+        
+    
     def tearDown(self):
         # Remove the test file if it exists
         if os.path.exists('test_file.txt'):

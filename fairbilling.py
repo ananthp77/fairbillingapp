@@ -44,7 +44,7 @@ def validate_line(line):
     return True
 
 def process_data(file_path):
-    """Take individual the session data from the input file."""
+    """Take individual session data from the input file."""
     try:
         with open(file_path, 'r') as file:
             data = file.readlines()
@@ -52,9 +52,9 @@ def process_data(file_path):
         logging.error(f"Error reading file: {e}")
         return {}, {}
 
-    sessions = {}  # Stores ongoing sessions for each user
-    result = {}    # Stores total duration for each user
-    session_counts = {}  # Stores session counts for each user
+    sessions = {}  # Dictionary that stores start sessions for each user
+    result = {}    # Dictionary that stores total duration for each user
+    session_counts = {}  # Dictionary that stores session counts for each user
 
     # Filter and validate data
     valid_data = [line.strip() for line in data if validate_line(line)]
